@@ -1,0 +1,16 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check index.html exists
+        run: test -f index.html
