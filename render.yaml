@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: render-lab-sheleheda
+    runtime: python
+    plan: free
+    region: frankfurt
+    branch: master
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /health
+    envVars:
+      - key: STUDENT_NAME
+        value: Шелегеда Поліна
+      - key: SECRET_KEY
+        generateValue: true
